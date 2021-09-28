@@ -9,6 +9,9 @@ pipeline {
           reuseNode true
         }
       }
+      environment {
+        HOME = '.'
+      }
       steps {
         sh 'yarn install'
         sh 'yarn test:ci'
