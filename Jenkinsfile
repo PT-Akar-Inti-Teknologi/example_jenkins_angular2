@@ -18,17 +18,17 @@ pipeline {
       }
     }
 
-    // stage('Coding Standard') {
-    //   agent {
-    //     docker {
-    //       image 'node:14.17.0-alpine'
-    //       reuseNode true
-    //     }
-    //   }
-    //   steps {
-    //     sh 'yarn lint:test'
-    //   }
-    // }
+    stage('Coding Standard') {
+      agent {
+        docker {
+          image 'node:14.17.0-alpine'
+          reuseNode true
+        }
+      }
+      steps {
+        sh 'yarn lint'
+      }
+    }
 
     stage('Sonarqube Analysis') {
       environment {
